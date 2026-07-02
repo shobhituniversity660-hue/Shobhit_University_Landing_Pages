@@ -4,9 +4,10 @@ import { NAVIGATION_LINKS } from "../data";
 
 interface NavbarProps {
   onApplyClick: () => void;
+  linkPrefix?: string;
 }
 
-export default function Navbar({ onApplyClick }: NavbarProps) {
+export default function Navbar({ onApplyClick, linkPrefix = "" }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -18,7 +19,7 @@ export default function Navbar({ onApplyClick }: NavbarProps) {
         <div className="flex justify-between items-center h-14">
           
           {/* Logo Brand matching the new logo URL */}
-          <a href="#" className="flex items-center group header-logo-link" id="logo-branding">
+          <a href={linkPrefix || "/"} className="flex items-center group header-logo-link" id="logo-branding">
             <img
               src="https://www.shobhituniversity.ac.in/assets/img/logo/logo.png"
               alt="Shobhit University Logo"
@@ -32,7 +33,7 @@ export default function Navbar({ onApplyClick }: NavbarProps) {
             {NAVIGATION_LINKS.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={`${linkPrefix}${link.href}`}
                 className="font-sans text-[11px] font-bold tracking-wider text-zinc-600 hover:text-izee-red transition-colors duration-200"
               >
                 {link.label}
@@ -73,7 +74,7 @@ export default function Navbar({ onApplyClick }: NavbarProps) {
             {NAVIGATION_LINKS.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={`${linkPrefix}${link.href}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className="font-sans text-xs font-bold tracking-wider text-zinc-700 hover:text-izee-red py-2 border-b border-zinc-50"
               >

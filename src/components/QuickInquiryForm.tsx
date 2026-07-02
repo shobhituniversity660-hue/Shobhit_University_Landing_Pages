@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Send, CheckCircle, Phone, Mail, User } from "lucide-react";
+import { motion } from "motion/react";
+import { Send, Phone, Mail, User } from "lucide-react";
+import { navigateTo } from "../utils/navigation";
 
 export default function QuickInquiryForm() {
   const [formData, setFormData] = useState({
@@ -9,8 +10,6 @@ export default function QuickInquiryForm() {
     phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [trackerId, setTrackerId] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,8 +27,12 @@ export default function QuickInquiryForm() {
     
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTrackerId(`IZ-Q-${Math.floor(100000 + Math.random() * 900000)}`);
+      const trackerId = `IZ-Q-${Math.floor(100000 + Math.random() * 900000)}`;
+      const params = new URLSearchParams({
+        name: formData.fullName,
+        id: trackerId,
+      });
+      navigateTo(`/thank-you?${params.toString()}`);
     }, 1000);
   };
 
@@ -42,15 +45,11 @@ export default function QuickInquiryForm() {
       <div className="h-2 bg-izee-red w-full" />
 
       <div className="p-6 sm:p-7">
-        <AnimatePresence mode="wait">
-          {!isSuccess ? (
-            <motion.div
-              key="form-fields"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.18 }}
-            >
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.18 }}
+        >
               <div className="mb-6">
                 <h3 className="font-excon font-medium text-xl text-izee-black tracking-tight leading-tight uppercase">
                   Fast-Track Eligibility
@@ -140,58 +139,7 @@ export default function QuickInquiryForm() {
                   )}
                 </button>
               </form>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="success-fields"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              className="text-center py-4 space-y-3"
-            >
-              <div className="inline-flex items-center justify-center w-9 h-9 bg-emerald-100 text-emerald-600 rounded-full">
-                <CheckCircle className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-excon font-bold text-izee-black uppercase leading-none">
-                  Query Submitted!
-                </h4>
-                <p className="text-[10px] text-zinc-400 mt-1.5 font-ranade font-light px-1">
-                  Thank you, <strong className="text-izee-black">{formData.fullName}</strong>. Your inquiry tracking code is active.
-                </p>
-              </div>
-
-              <div className="bg-zinc-50 border border-zinc-100 rounded-lg p-2 text-left space-y-1 text-[10px] max-w-xs mx-auto font-ranade font-light">
-                <div className="flex justify-between">
-                  <span className="text-zinc-400 font-bold">Query ID:</span>
-                  <strong className="text-izee-black font-mono font-medium">{trackerId}</strong>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-zinc-400 font-bold">Priority Status:</span>
-                  <span className="text-izee-red font-excon font-bold">Active</span>
-                </div>
-              </div>
-
-              <p className="text-[9px] text-zinc-400 font-ranade font-light px-1">
-                A specialist will verify eligibility and contact you shortly.
-              </p>
-
-              <button
-                onClick={() => {
-                  setIsSuccess(false);
-                  setFormData({
-                    fullName: "",
-                    email: "",
-                    phone: "",
-                  });
-                }}
-                className="px-3 py-1 hover:bg-zinc-100 border border-zinc-200 text-zinc-500 rounded text-[9px] font-excon font-bold uppercase tracking-wider transition-all cursor-pointer"
-              >
-                Inquire Again
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   );
