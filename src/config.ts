@@ -1,13 +1,21 @@
 export const BASE_PATH = "/shobhit-general-landing-page";
 
+export function getCurrentBasePath(): "" | typeof BASE_PATH {
+  const pathname = window.location.pathname || "/";
+  return pathname === BASE_PATH || pathname.startsWith(`${BASE_PATH}/`)
+    ? BASE_PATH
+    : "";
+}
+
 export function withBasePath(path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
+  const base = getCurrentBasePath();
 
   if (normalized === "/") {
-    return BASE_PATH;
+    return base || "/";
   }
 
-  return `${BASE_PATH}${normalized}`;
+  return `${base}${normalized}`;
 }
 
 export function getAppPathname(): string {

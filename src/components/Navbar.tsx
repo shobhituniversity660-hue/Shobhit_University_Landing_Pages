@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUpRight, Menu, X, GraduationCap } from "lucide-react";
-import { BASE_PATH } from "../config";
+import { BASE_PATH, getCurrentBasePath } from "../config";
 import { NAVIGATION_LINKS } from "../data";
 
 interface NavbarProps {
@@ -8,7 +8,10 @@ interface NavbarProps {
   linkPrefix?: string;
 }
 
-export default function Navbar({ onApplyClick, linkPrefix = BASE_PATH }: NavbarProps) {
+export default function Navbar({
+  onApplyClick,
+  linkPrefix = getCurrentBasePath() || BASE_PATH,
+}: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -20,7 +23,11 @@ export default function Navbar({ onApplyClick, linkPrefix = BASE_PATH }: NavbarP
         <div className="flex justify-between items-center h-14">
           
           {/* Logo Brand matching the new logo URL */}
-          <a href={linkPrefix} className="flex items-center group header-logo-link" id="logo-branding">
+          <a
+            href={linkPrefix || "/"}
+            className="flex items-center group header-logo-link"
+            id="logo-branding"
+          >
             <img
               src="https://www.shobhituniversity.ac.in/assets/img/logo/logo.png"
               alt="Shobhit University Logo"

@@ -1,19 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/shobhit-general-landing-page/assets/:path*",
+      "source": "/assets/:path*",
       "destination": "/assets/:path*"
     },
     {
-      "source": "/shobhit-general-landing-page/shobhit.webp",
-      "destination": "/shobhit.webp"
-    },
-    {
-      "source": "/shobhit-general-landing-page",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/shobhit-general-landing-page/:path*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
