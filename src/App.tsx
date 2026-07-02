@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Ticker from "./components/Ticker";
 import { downloadBrochure } from "./utils/downloadBrochure";
@@ -23,7 +23,23 @@ import LifeAtShobhit from "./components/LifeAtShobhit";
 import Footer from "./components/Footer";
 import ScholarshipsSection from "./components/ScholarshipsSection";
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(
+    () => window.matchMedia(query).matches,
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const listener = () => setMatches(media.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, [query]);
+
+  return matches;
+}
+
 export default function App() {
+  const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const handleApplyNow = () => {
     const el = document.getElementById("admissions-inquiry");
     if (el) {
@@ -59,22 +75,26 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
             
-            {/* Overlapping Quick Inquiry Form on the Right Side - Desktop Only */}
-            <div className="absolute inset-0 hidden lg:block pointer-events-none z-20">
-              <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-end py-4">
-                <div className="pointer-events-auto transform translate-y-4 lg:translate-x-[40%]">
-                  <QuickInquiryForm />
+            {/* Overlapping CRM Widget on the Right Side - Desktop Only */}
+            {isLargeScreen && (
+              <div className="absolute inset-0 pointer-events-none z-20">
+                <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-end py-4">
+                  <div className="pointer-events-auto transform translate-y-4 lg:translate-x-[40%]">
+                    <QuickInquiryForm />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
-          {/* Quick Inquiry Form - Mobile and Tablet Only (Under the banner) */}
-          <div className="block lg:hidden px-4 py-8 bg-zinc-50 border-b border-zinc-200/50">
-            <div className="max-w-md mx-auto">
-              <QuickInquiryForm />
+          {/* CRM Widget - Mobile and Tablet Only (Under the banner) */}
+          {!isLargeScreen && (
+            <div className="px-4 py-8 bg-zinc-50 border-b border-zinc-200/50">
+              <div className="max-w-md mx-auto">
+                <QuickInquiryForm />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </header>
 
