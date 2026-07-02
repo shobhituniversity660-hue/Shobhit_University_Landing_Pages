@@ -1,0 +1,6 @@
+{
+  "name": "College Hero Section",
+  "description": "A high-fidelity, interactive, and beautifully responsive replica of the IZEE Business School hero section with an integrated admissions inquiry modal, custom animated tickers, and detailed curriculum previews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
