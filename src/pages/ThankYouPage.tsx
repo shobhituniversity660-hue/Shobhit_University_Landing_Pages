@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 import Footer from "../components/Footer";
-import { navigateTo } from "../utils/navigation";
 
 const NEXT_STEPS = [
   {

@@ -1,7 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/shobhit-general-landing-page/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/shobhit-general-landing-page",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/shobhit-general-landing-page/:path*",
       "destination": "/index.html"
     }
   ]

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import App from "./App";
 import ThankYouPage from "./pages/ThankYouPage";
+import { BASE_PATH, getAppPathname } from "./config";
 
 function getPathname() {
-  return window.location.pathname.replace(/\/+$/, "") || "/";
+  return getAppPathname();
 }
 
 export default function AppRouter() {
@@ -16,9 +17,22 @@ export default function AppRouter() {
     return () => window.removeEventListener("popstate", handleRouteChange);
   }, []);
 
+  useEffect(() => {
+    const browserPath =
+      window.location.pathname.replace(/\/+$/, "") || "/";
+
+    if (browserPath === "/" || browserPath === "") {
+      window.location.replace(BASE_PATH);
+    }
+  }, []);
+
   if (pathname === "/thank-you") {
     return <ThankYouPage />;
   }
 
-  return <App />;
+  if (pathname === "/") {
+    return <App />;
+  }
+
+  return null;
 }
