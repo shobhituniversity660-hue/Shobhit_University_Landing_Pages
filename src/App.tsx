@@ -6,7 +6,6 @@
 import React, { useEffect, useState } from "react";
 
 import Ticker from "./components/Ticker";
-import { downloadBrochure } from "./utils/downloadBrochure";
 import Navbar from "./components/Navbar";
 import BottomCards from "./components/BottomCards";
 import QuickInquiryForm from "./components/QuickInquiryForm";
@@ -152,7 +151,7 @@ export default function App() {
       {/* Persistent Premium Bottom CTA */}
       <StickyBottomCTA 
         onApply={handleApplyNow} 
-        onDownloadBrochure={downloadBrochure}
+        onDownloadBrochure={handleApplyNow}
       />
     </div>
   );

@@ -62,7 +62,7 @@ export default function StickyBottomCTA({ onApply, onDownloadBrochure }: StickyB
 
         {/* Right Side: Dual Actions */}
         <div className="flex items-center gap-3 w-full md:w-auto">
-          {/* Download Brochure button */}
+          {/* Brochure button */}
           <button
             onClick={onDownloadBrochure}
             className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-zinc-50 text-zinc-900 hover:text-black text-xs sm:text-sm font-excon font-bold rounded-full border-2 border-zinc-300 hover:border-zinc-400 transition-all duration-200"
