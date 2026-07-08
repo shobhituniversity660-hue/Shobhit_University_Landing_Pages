@@ -17,6 +17,22 @@
       "destination": "/btech-admission-open-2026/index.html"
     },
     {
+      "source": "/admission-mba/assets/:path*",
+      "destination": "/admission-mba/assets/:path*"
+    },
+    {
+      "source": "/admission-mba/shobhit.webp",
+      "destination": "/shobhit.webp"
+    },
+    {
+      "source": "/admission-mba",
+      "destination": "/admission-mba/index.html"
+    },
+    {
+      "source": "/admission-mba/:path*",
+      "destination": "/admission-mba/index.html"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "/assets/:path*"
     },

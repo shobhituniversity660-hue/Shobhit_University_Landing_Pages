@@ -5,14 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "dev:btech": "npm run dev --prefix Shobhit-University-B.Tech-Landing-Page-main -- --port 3001",
-    "dev:mba": "npm run dev --prefix Shobhit-University-MBA-Landing-Page--main -- --port 3002",
-    "build": "vite build && npm run build:btech && npm run build:mba",
-    "build:btech": "npm install --prefix Shobhit-University-B.Tech-Landing-Page-main && npm run build --prefix Shobhit-University-B.Tech-Landing-Page-main",
-    "build:mba": "npm install --prefix Shobhit-University-MBA-Landing-Page--main && npm run build --prefix Shobhit-University-MBA-Landing-Page--main",
+    "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit && npm run lint --prefix Shobhit-University-B.Tech-Landing-Page-main && npm run lint --prefix Shobhit-University-MBA-Landing-Page--main"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
