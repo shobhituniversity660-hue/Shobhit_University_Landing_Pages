@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/btech-admission-open-2026/assets/:path*",
+      "destination": "/btech-admission-open-2026/assets/:path*"
+    },
+    {
+      "source": "/btech-admission-open-2026/shobhit.webp",
+      "destination": "/shobhit.webp"
+    },
+    {
+      "source": "/btech-admission-open-2026",
+      "destination": "/btech-admission-open-2026/index.html"
+    },
+    {
+      "source": "/btech-admission-open-2026/:path*",
+      "destination": "/btech-admission-open-2026/index.html"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "/assets/:path*"
     },
