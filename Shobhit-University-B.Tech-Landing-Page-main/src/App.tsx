@@ -68,11 +68,18 @@ export default function App() {
 
         <div className="w-full relative z-10">
           <div className="relative">
+            {/* Desktop Banner */}
             <img
-              src="https://imgh.in/host/pzd3w2"
-              alt="Shobhit University Admissions Banner"
-              className="w-full h-auto object-cover select-none block"
-              referrerPolicy="no-referrer"
+              src="/btech-admission-open-2026/btech_desktop.webp"
+              alt="Shobhit University B.Tech Admissions Banner"
+              className="hidden sm:block w-full h-auto object-cover select-none"
+            />
+
+            {/* Mobile Banner */}
+            <img
+              src="/btech-admission-open-2026/btech_mobile.webp"
+              alt="Shobhit University B.Tech Admissions Banner Mobile"
+              className="block sm:hidden w-full h-auto object-cover select-none"
             />
             
             {/* Overlapping CRM Widget on the Right Side - Desktop Only */}

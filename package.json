@@ -7,12 +7,14 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "dev:btech": "npm run dev --prefix Shobhit-University-B.Tech-Landing-Page-main -- --port 3001",
     "dev:mba": "npm run dev --prefix Shobhit-University-MBA-Landing-Page--main -- --port 3002",
-    "build": "vite build && npm run build:btech && npm run build:mba",
+    "dev:law": "npm run dev --prefix Shobhit-University-Law-Landing-Page-main -- --port 3003",
+    "build": "vite build && npm run build:btech && npm run build:mba && npm run build:law",
     "build:btech": "npm install --prefix Shobhit-University-B.Tech-Landing-Page-main && npm run build --prefix Shobhit-University-B.Tech-Landing-Page-main",
     "build:mba": "npm install --prefix Shobhit-University-MBA-Landing-Page--main && npm run build --prefix Shobhit-University-MBA-Landing-Page--main",
+    "build:law": "npm install --prefix Shobhit-University-Law-Landing-Page-main && npm run build --prefix Shobhit-University-Law-Landing-Page-main",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit && npm run lint --prefix Shobhit-University-B.Tech-Landing-Page-main && npm run lint --prefix Shobhit-University-MBA-Landing-Page--main"
+    "lint": "tsc --noEmit && npm run lint --prefix Shobhit-University-B.Tech-Landing-Page-main && npm run lint --prefix Shobhit-University-MBA-Landing-Page--main && npm run lint --prefix Shobhit-University-Law-Landing-Page-main"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

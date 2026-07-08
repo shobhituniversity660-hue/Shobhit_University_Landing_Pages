@@ -9,6 +9,14 @@
       "destination": "/shobhit.webp"
     },
     {
+      "source": "/btech-admission-open-2026/btech_mobile.webp",
+      "destination": "/btech_mobile.webp"
+    },
+    {
+      "source": "/btech-admission-open-2026/btech_desktop.webp",
+      "destination": "/btech_desktop.webp"
+    },
+    {
       "source": "/btech-admission-open-2026",
       "destination": "/btech-admission-open-2026/index.html"
     },
@@ -31,6 +39,30 @@
     {
       "source": "/admission-mba/:path*",
       "destination": "/admission-mba/index.html"
+    },
+    {
+      "source": "/admission-open-for-law-2026/assets/:path*",
+      "destination": "/admission-open-for-law-2026/assets/:path*"
+    },
+    {
+      "source": "/admission-open-for-law-2026/shobhit.webp",
+      "destination": "/shobhit.webp"
+    },
+    {
+      "source": "/admission-open-for-law-2026/law_mobile.webp",
+      "destination": "/law_mobile.webp"
+    },
+    {
+      "source": "/admission-open-for-law-2026/law_desktop.webp",
+      "destination": "/law_desktop.webp"
+    },
+    {
+      "source": "/admission-open-for-law-2026",
+      "destination": "/admission-open-for-law-2026/index.html"
+    },
+    {
+      "source": "/admission-open-for-law-2026/:path*",
+      "destination": "/admission-open-for-law-2026/index.html"
     },
     {
       "source": "/assets/:path*",

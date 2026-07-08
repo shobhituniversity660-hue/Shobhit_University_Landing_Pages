@@ -13,19 +13,17 @@ import TrustMarquee from "./components/TrustMarquee";
 import WhyChooseShobhit from "./components/WhyChooseShobhit";
 import ConnectivitySection from "./components/ConnectivitySection";
 import ProgramsSection from "./components/ProgramsSection";
-import AdmissionRoutes from "./components/AdmissionRoutes";
-import StickyBottomCTA from "./components/StickyBottomCTA";
-import RecruitersVerticalMarquee from "./components/RecruitersVerticalMarquee";
 import PlacementGallery from "./components/PlacementGallery";
-import NotableAlumniMarquee from "./components/NotableAlumniMarquee";
-import LifeAtShobhit from "./components/LifeAtShobhit";
-import Footer from "./components/Footer";
+import CareerPathways from "./components/CareerPathways";
+import AdmissionRoutes from "./components/AdmissionRoutes";
 import ScholarshipsSection from "./components/ScholarshipsSection";
+import StickyBottomCTA from "./components/StickyBottomCTA";
+import LifeAtShobhit from "./components/LifeAtShobhit";
+import FAQSection from "./components/FAQSection";
+import Footer from "./components/Footer";
 
 function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(
-    () => window.matchMedia(query).matches,
-  );
+  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
 
   useEffect(() => {
     const media = window.matchMedia(query);
@@ -39,6 +37,7 @@ function useMediaQuery(query: string) {
 
 export default function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+
   const handleApplyNow = () => {
     const el = document.getElementById("admissions-inquiry");
     if (el) {
@@ -69,16 +68,15 @@ export default function App() {
           <div className="relative">
             {/* Desktop Banner */}
             <img
-              src="https://imgh.in/host/1h729x"
-              alt="Shobhit University Admissions Banner"
+              src="/admission-open-for-law-2026/law_desktop.webp"
+              alt="Shobhit University Law Admissions Banner"
               className="hidden sm:block w-full h-auto object-cover select-none"
-              referrerPolicy="no-referrer"
             />
 
             {/* Mobile Banner */}
             <img
-              src="/general_mobile.webp"
-              alt="Shobhit University Admissions Banner Mobile"
+              src="/admission-open-for-law-2026/law_mobile.webp"
+              alt="Shobhit University Law Admissions Banner Mobile"
               className="block sm:hidden w-full h-auto object-cover select-none"
             />
             
@@ -117,29 +115,13 @@ export default function App() {
       {/* Shobhit Institute Academic Programs Section */}
       <ProgramsSection onApply={handleApplyNow} />
 
-      {/* Vertical Recruiters Marquee Section */}
-      <RecruitersVerticalMarquee />
-
-      {/* Our Placements Showcase Section */}
+      {/* Placement Gallery Showcase Section */}
       <PlacementGallery />
 
-      {/* Single Image Banner Section with 6px radius */}
-      <section className="py-6 bg-white" id="programs-university-banner">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[6px] shadow-sm hover:shadow-md transition-all duration-300">
-            <img
-              src="https://imgh.in/host/nkpko8"
-              alt="Multiple Programmes. One University. Banner"
-              className="w-full h-auto object-cover rounded-[6px] select-none block"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Explore Diverse Career Pathways Section */}
+      <CareerPathways />
 
-      {/* Notable Alumni picture marquee slider section */}
-      <NotableAlumniMarquee />
+
 
       {/* Admission Procedure and Routes section */}
       <AdmissionRoutes onApply={handleApplyNow} />
@@ -152,6 +134,9 @@ export default function App() {
 
       {/* Life @ Shobhit University slider section */}
       <LifeAtShobhit />
+
+      {/* Frequently Asked Questions */}
+      <FAQSection />
 
       {/* Royal Shobhit University Footer Section */}
       <Footer />
