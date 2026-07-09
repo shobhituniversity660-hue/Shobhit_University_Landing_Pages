@@ -77,7 +77,7 @@ export default function App() {
 
             {/* Mobile Banner */}
             <img
-              src="/general_mobile.webp"
+              src="/mobile_banners/general_mobile.png"
               alt="Shobhit University Admissions Banner Mobile"
               className="block sm:hidden w-full h-auto object-cover select-none"
             />

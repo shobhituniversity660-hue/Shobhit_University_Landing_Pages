@@ -75,7 +75,7 @@ export default function App() {
 
             {/* Mobile Banner */}
             <img
-              src="/admission-open-for-law-2026/law_mobile.webp"
+              src="/admission-open-for-law-2026/mobile_banners/law_mobile.png"
               alt="Shobhit University Law Admissions Banner Mobile"
               className="block sm:hidden w-full h-auto object-cover select-none"
             />

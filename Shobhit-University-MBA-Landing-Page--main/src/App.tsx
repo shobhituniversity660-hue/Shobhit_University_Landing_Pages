@@ -78,10 +78,9 @@ export default function App() {
             
             {/* Mobile Banner */}
             <img
-              src="https://imgh.in/host/wbledm"
-              alt="Shobhit University Admissions Banner Mobile"
+              src="/admission-mba/mobile_banners/mba_mobile.png"
+              alt="Shobhit University MBA Admissions Banner Mobile"
               className="block sm:hidden w-full h-auto object-cover select-none"
-              referrerPolicy="no-referrer"
             />
             
             {/* Overlapping CRM Widget on the Right Side - Desktop Only */}

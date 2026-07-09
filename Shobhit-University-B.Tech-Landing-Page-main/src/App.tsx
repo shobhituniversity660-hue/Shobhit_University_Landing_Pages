@@ -77,7 +77,7 @@ export default function App() {
 
             {/* Mobile Banner */}
             <img
-              src="/btech-admission-open-2026/btech_mobile.webp"
+              src="/btech-admission-open-2026/mobile_banners/btech_mobile.png"
               alt="Shobhit University B.Tech Admissions Banner Mobile"
               className="block sm:hidden w-full h-auto object-cover select-none"
             />
